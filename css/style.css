@@ -1,0 +1,149 @@
+/* Basic page reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: #fff;
+}
+
+/* Logo Section */
+.logo-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-main {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a4cd3;
+    line-height: 0.9;
+}
+
+.logo-sub {
+    font-size: 14px;
+    font-weight: 800;
+    color: #000;
+    letter-spacing: 5px; /* Creates the spaced out 'S O L U T I O N' look */
+    margin-top: 2px;
+}
+
+/* Navigation Section */
+.nav-menu a {
+    text-decoration: none;
+    color: #1a4cd3;
+    font-weight: 500;
+    margin-left: 30px;
+    font-size: 16px;
+}
+
+.nav-menu a:hover {
+    text-decoration: underline;
+}
+img .logo{
+    width: 160px !important;
+}
+/*banner*/
+/* Hero Section Container */
+.hero {
+    position: relative;
+    height: 80vh; /* Adjust height as needed */
+    background: url('/quick-funding/images/mainbanner-1.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+/* Typography */
+.hero-title {
+    font-size: 32px;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+.text-blue { color: #1a4cd3; font-weight: 800; }
+.text-gray { color: #555; font-weight: 700; }
+
+.hero-amount {
+    display: flex;
+    align-items: flex-start;
+    color: #1a4cd3;
+    margin: 10px 0;
+}
+
+.up-to {
+    font-size: 18px;
+    font-weight: 900;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+.price {
+    font-size: 100px;
+    font-weight: 900;
+    line-height: 0.8;
+}
+
+.hero-subtitle {
+    color: #555;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* Horizontal Lead Form */
+.lead-form {
+    display: flex;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.input-group {
+    padding: 15px 25px;
+    border-right: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group select {
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+}
+
+.btn-submit {
+    background-color: #1a4cd3;
+    color: white;
+    border: none;
+    padding: 0 40px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #1339a6;
+}
+
+.disclaimer {
+    font-size: 11px;
+    color: #666;
+    margin-top: 15px;
+}
