@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dailydebt Solution</title>
+    <style>
+    /* Basic page reset */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Header Container */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 8%;
+        background-color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: #1a4cd3;
+        font-weight: 500;
+        margin-left: 20px;
+        font-size: 15px;
+    }
+
+    /* Banner/Hero Section */
+    .hero {
+        position: relative;
+        min-height: 80vh;
+        background: url('/quick-funding/images/mainbanner-1.jpg') no-repeat center center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 5%;
+    }
+
+    .hero-container {
+        width: 65%;
+        max-width: 1200px;
+    }
+
+    .hero-title {
+        font-size: clamp(24px, 5vw, 32px);
+        margin-bottom: 0;
+        line-height: 1.2;
+    }
+
+    .text-blue { color: #1a4cd3; font-weight: 800; }
+    .text-gray { color: #555; font-weight: 700; }
+
+    .price-tag {
+        display: flex;
+        align-items: flex-start;
+        color: #1a4cd3;
+        margin: 10px 0;
+    }
+
+    .up-to {
+        font-size: 18px;
+        font-weight: 900;
+        margin-top: 15px;
+        margin-right: 5px;
+        color: #fff; /* Changed from white to ensure visibility */
+    }
+
+    .amount {
+        font-size: clamp(60px, 12vw, 100px);
+        font-weight: 900;
+        line-height: 0.8;
+    }
+
+    .hero-subtitle {
+        color: #555;
+        font-size: clamp(18px, 4vw, 28px);
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    /* Form Styles */
+    .lead-form {
+        display: flex;
+        background: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-radius: 4px;
+        width: fit-content;
+    }
+
+    .input-box {
+        padding: 12px 20px;
+        border-right: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        min-width: 150px;
+    }
+
+    .input-box:last-of-type { border-right: none; }
+
+    .input-box label {
+        font-size: 11px;
+        color: #888;
+        margin-bottom: 3px;
+    }
+
+    .input-box input, .input-box select {
+        border: none;
+        font-size: 15px;
+        font-weight: 600;
+        outline: none;
+        background: transparent;
+        width: 100%;
+    }
+
+    .btn-start {
+        background-color: #1a4cd3;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: background 0.3s;
+        font-size:20px;
+        text-transform: uppercase;
+    }
+
+    .legal {
+        font-size: 11px;
+        color: #666;
+        margin-top: 15px;
+    }
+
+    /* Content Sections */
+    .steps-section, .why-choose-us, .trust-section {
+        padding: 60px 8%;
+        text-align: center;
+    }
+
+    .steps-container, .features-grid {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .step-card, .feature-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:10px;
+    }
+
+    .feature-item { text-align: left; flex-direction: row; align-items: flex-start; }
+
+    .blue-bar {
+        background-color: #1a4cd3;
+        color: white;
+        padding: 15px 5%;
+    }
+
+    .bar-content {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .cta-banner {
+        padding: 60px 5%;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/quick-funding/images/cta-banner.jpg') no-repeat center center/cover;
+        text-align: center;
+        color: white;
+    }
+
+    /* --- RESPONSIVE MEDIA QUERIES --- */
+
+    @media (max-width: 992px) {
+        .lead-form {
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .input-box {
+            border-right: none;
+            border-bottom: 1px solid #eee;
+            padding: 15px;
+        }
+
+        .btn-start {
+            padding: 15px;
+        }
+
+        .hero {
+            text-align: center;
+        }
+
+        .price-tag {
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-menu a {
+            margin: 0 10px;
+        }
+
+        .steps-container, .features-grid {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-item {
+            flex-direction: column;
+            text-align: center;
+            max-width: 350px;
+        }
+
+        .bar-content {
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .badge-row .badge{
+            width:100%;
+        }
+        .btn-start{
+         	font-size: 13px;
+        }
+        .feature-icon-box{
+            margin-left:auto;
+            margin-right:auto;
+        }
+    }
+    .feature-text h4{
+        margin-top:0px;
+    }
+    .feature-icon-box img{
+        width:35px;
+    }
+    
+</style>
+<script>
+function redirectToPage() {
+  window.location.href = "https://www.follwtrk.com/2BZZLHG/CR7NKZX/";
+}</script>
+</head>
+<body onclick="redirectToPage()" style="cursor: pointer;">
+
+    <header class="navbar">
+        <div class="logo-area">
+            <img src="/quick-funding/images/logo.png" width="160" alt="Dailydebt Logo"/>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#">How It Works</a>
+            <a href="#">FAQs</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text-content">
+                <h2 class="hero-title">
+                    <span class="text-blue">QUICK FUNDING</span><br>
+                    <span class="text-gray">WHEN YOU NEED IT.</span>
+                </h2>
+                
+                <div class="price-tag">
+                    <span class="up-to">UP TO</span>
+                    <span class="amount">$5,000</span>
+                </div>
+                
+                <h3 class="hero-subtitle">AS SOON AS TOMORROW</h3>
+
+                <!--<form class="lead-form">
+                    <div class="input-box">
+                        <label>Loan Amount</label>
+                        <select>
+                            <option>$500 - $1,000</option>
+                            <option>$1,000 - $3,000</option>
+                            <option>$3,000 - $5,000</option>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label>ZIP Code *</label>
+                        <input type="text" placeholder="-----">
+                    </div>
+                    <div class="input-box">
+                        <label>Email Address *</label>
+                        <input type="email" placeholder="Email Address">
+                    </div>
+                    <button type="submit" class="btn-start">START HERE</button>
+                </form>-->
+                <button type="submit" class="btn-start">Click here to see your funding options</button>
+                
+                <p class="legal">By clicking 'Start Here', you agree to our <a href="#">Privacy Policy</a>, <a href="#">Terms</a> and <a href="#">E-Consent</a>. * US Residents Only.</p>
+            </div>
+        </div>
+    </section>
+    <section class="steps-section">
+    <h2 class="steps-title">GETTING STARTED IS SIMPLE</h2>
+    
+    <div class="steps-container">
+        <div class="step-card">
+            <div class="step-icon">
+                <img src="/quick-funding/images/forward.webp" alt="Fast form">
+            </div>
+            <h4 class="step-heading">Fast online form</h4>
+            <p class="step-text">Fill out our quick online form from any device. It only takes about 60 seconds.</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-icon">
+                <img src="/quick-funding/images/chain.webp" alt="Get connected">
+            </div>
+            <h4 class="step-heading">Get connected</h4>
+            <p class="step-text">Your request is matched with lenders from our network. You'll see options tailored to your situation.</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-icon">
+                <img src="/quick-funding/images/card.webp" alt="Receive funds">
+            </div>
+            <h4 class="step-heading">Receive your funds</h4>
+            <p class="step-text">Once you choose an offer and are approved, funds can be sent directly to your bank account.</p>
+        </div>
+    </div>
+</section>
+<section class="why-choose-us">
+    <h2 class="section-title">WHY PEOPLE CHOOSE US</h2>
+    
+    <div class="features-grid">
+        <div class="feature-item">
+            <div class="feature-icon-box">
+                <img src="/quick-funding/images/icon-1.webp" alt="Secure">
+            </div>
+            <div class="feature-text">
+                <h4>Secure, streamlined process</h4>
+                <p>Industry-standard 256-bit encryption protects your information.</p>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-icon-box">
+                <img src="/quick-funding/images/laptop.webp" alt="Options">
+            </div>
+            <div class="feature-text">
+                <h4>Options for all credit situations</h4>
+                <p>Our lending partners work with individuals across a variety of financial situations.</p>
+            </div>
+        </div>
+
+        <div class="feature-item">
+            <div class="feature-icon-box">
+                <img src="/quick-funding/images/rate.webp" alt="Transparent">
+            </div>
+            <div class="feature-text">
+                <h4>Transparent & clear</h4>
+                <p>Loan amounts, rates, and terms vary from lender to lender. You'll see details before you accept.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="blue-bar">
+    <div class="bar-content">
+        <span><i class="check-icon">✓</i> Fast, Loan Requests</span>
+        <span><i class="check-icon">✓</i> Funds Direct Deposited</span>
+        <span><i class="check-icon">✓</i> All Credit Situations</span>
+    </div>
+</div>
+<section class="trust-section">
+    <div class="trust-block">
+        <h2 class="trust-title">BORROW WITH <span class="text-blue">CONFIDENCE</span></h2>
+        <p class="trust-description">
+            As a premium and trusted online service provider, we respect and protect your privacy at all times while on this site. 
+            All data is encrypted with the latest 256-bit encryption technology.
+        </p>
+        <div class="badge-row">
+            <img src="/quick-funding/images/256-white.png" alt="256 Bit Encryption" class="badge">
+            
+        </div>
+    </div>
+
+    
+
+    <div class="trust-block">
+        <h2 class="trust-title">WE'RE OLA <span class="text-blue">COMPLIANT</span></h2>
+        <p class="trust-description">
+            When you see the OLA seal, you can trust you're working with a company committed to the highest standards of conduct, 
+            dedicated to ensuring the best possible experience for their users, compliant and working hard to protect consumers from fraud.
+        </p>
+        <div class="badge-row">
+            <img src="/quick-funding/images/memberseal.png" alt="OLA Member" class="ola-badge">
+        </div>
+    </div>
+</section>
+<section class="cta-banner">
+    <div class="cta-overlay">
+        <h2 class="cta-text">TAKE THE NEXT STEP WITH UP TO $5,000</h2>
+        <a href="#" class="btn-get-started">GET STARTED</a>
+    </div>
+</section>
+
+</body>
+</html>
